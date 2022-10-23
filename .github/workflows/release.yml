@@ -59,7 +59,8 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v3
         with:
-          context: ./deployment/docker/prod
+          context: .
+          file: /deployment/docker/prod/Dockerfile
           push: true
           tags: semaphoreui/semaphore:latest,semaphoreui/semaphore:${{ github.ref_name }}
 
