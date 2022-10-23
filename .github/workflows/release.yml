@@ -56,14 +56,15 @@ jobs:
           username: ${{ secrets.DOCKER_USER }}
           password: ${{ secrets.DOCKER_PASS }}
 
-#      - run: context=prod tag=latest task docker:buildx
-
       - name: Build and push
         uses: docker/build-push-action@v3
         with:
+          context: ./deployment/docker/prod
           push: true
           tags: semaphoreui/semaphore:${{ github.ref_name }}
 
+
+#      - run: context=prod tag=latest task docker:buildx
 #      - run: tag=latest task docker:push
 #      - run: docker tag semaphoreui/semaphore:latest semaphoreui/semaphore:${{ github.ref_name }}
 #      - run: tag=${{ github.ref_name }} task docker:push
