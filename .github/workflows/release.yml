@@ -61,7 +61,7 @@ jobs:
         with:
           context: ./deployment/docker/prod
           push: true
-          tags: semaphoreui/semaphore:${{ github.ref_name }}
+          tags: semaphoreui/semaphore:latest,semaphoreui/semaphore:${{ github.ref_name }}
 
 
 #      - run: context=prod tag=latest task docker:buildx

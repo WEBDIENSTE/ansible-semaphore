@@ -13,7 +13,7 @@ ENV GOOS="${TARGETOS}"
 ENV GOARCH="${TARGETARCH}"
 
 RUN apk add --no-cache -U libc-dev curl nodejs npm git && \
-  ./deployment/docker/prod/bin/install
+  /go/src/github.com/ansible-semaphore/semaphore/deployment/docker/prod/bin/install
 
 # Uses frolvlad alpine so we have access to glibc which is needed for golang
 # and when deploying in openshift
