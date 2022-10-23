@@ -258,9 +258,9 @@ tasks:
       - task: docker
         vars:
           context: "{{ .context }}"
-          action: buildx build
+          action: build
           tag: "{{ .tag }}"
-          args: --platform=linux/amd64 -t "{{ .docker_namespace }}/{{ .docker_image }}:{{ .tag }}" .
+          args: -t "{{ .docker_namespace }}/{{ .docker_image }}:{{ .tag }}" .
 
   docker:buildx:
     desc: Build a multiarch image for Semaphore, requires context

@@ -1,3 +1,5 @@
+ARG BUILDPLATFORM=linux/amd64
+
 # ansible-semaphore production image
 FROM --platform=$BUILDPLATFORM golang:1.18.3-alpine3.16 as builder
 
@@ -5,8 +7,8 @@ FROM --platform=$BUILDPLATFORM golang:1.18.3-alpine3.16 as builder
 COPY ./ /go/src/github.com/ansible-semaphore/semaphore
 WORKDIR /go/src/github.com/ansible-semaphore/semaphore
 
-ARG TARGETOS
-ARG TARGETARCH
+ARG TARGETOS=linux
+ARG TARGETARCH=amd64
 ENV GOOS="${TARGETOS}" 
 ENV GOARCH="${TARGETARCH}"
 
