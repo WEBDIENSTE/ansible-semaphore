@@ -98,7 +98,7 @@ jobs:
       - run: context=prod task docker:test
 
       - run: docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_PASS }}
-      - run: context=prod tag=develop task docker:build
+      - run: context=prod tag=develop task docker:buildx
       - run: tag=develop task docker:push
 
 

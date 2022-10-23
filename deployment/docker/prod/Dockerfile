@@ -5,8 +5,8 @@ FROM --platform=$BUILDPLATFORM golang:1.18.3-alpine3.16 as builder
 COPY ./ /go/src/github.com/ansible-semaphore/semaphore
 WORKDIR /go/src/github.com/ansible-semaphore/semaphore
 
-ARG TARGETOS TARGETARCH
-
+ARG TARGETOS
+ARG TARGETARCH
 ENV GOOS="${TARGETOS}" 
 ENV GOARCH="${TARGETARCH}"
 
