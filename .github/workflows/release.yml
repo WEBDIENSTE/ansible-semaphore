@@ -45,7 +45,7 @@ jobs:
       - run: context=prod task docker:test
 
       - run: docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_PASS }}
-      - run: context=prod tag=latest task docker:build
+      - run: context=prod tag=latest task docker:buildx
       - run: tag=latest task docker:push
       - run: docker tag semaphoreui/semaphore:latest semaphoreui/semaphore:${{ github.ref_name }}
       - run: tag=${{ github.ref_name }} task docker:push
